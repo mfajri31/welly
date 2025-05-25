@@ -40,6 +40,8 @@ class Paper {
       this.prevX = this.startX;
       this.prevY = this.startY;
 
+      document.body.style.overflow = 'hidden'; // <--- cegah scroll halaman
+
       if (e.button === 2) this.rotating = true;
     });
 
@@ -53,18 +55,22 @@ class Paper {
       this.startY = e.touches[0].clientY;
       this.prevX = this.startX;
       this.prevY = this.startY;
+
+      document.body.style.overflow = 'hidden'; // <--- cegah scroll halaman
     });
 
     // Mouse Up
     window.addEventListener('mouseup', () => {
       this.holdingPaper = false;
       this.rotating = false;
+      document.body.style.overflow = 'auto'; // <--- balikin scroll halaman
     });
 
     // Touch End
     window.addEventListener('touchend', () => {
       this.holdingPaper = false;
       this.rotating = false;
+      document.body.style.overflow = 'auto'; // <--- balikin scroll halaman
     });
 
     // Gesture (rotation multi-touch, optional)
